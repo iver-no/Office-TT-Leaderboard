@@ -1,0 +1,6 @@
+<?php
+//database credentials
+$ip = "localhost";
+$username = "root";
+$password = "";
+?>
