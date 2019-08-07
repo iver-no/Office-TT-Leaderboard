@@ -3,6 +3,9 @@
     include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
     include $_SERVER['DOCUMENT_ROOT'].'/functions/nfc-hex.php';
     include $_SERVER['DOCUMENT_ROOT'].'/functions/is-admin.php';
+    echo "<style>";
+    include $_SERVER['DOCUMENT_ROOT'].'/css/new-user.css';
+    echo "</style>";
 
     $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
 
@@ -13,6 +16,8 @@
 
     include $_SERVER['DOCUMENT_ROOT'].'/sections/header.php';
 
+    echo '<body id="body" class="light-mode">';
+
     if(isset($_POST['submit'])) {
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
@@ -20,40 +25,41 @@
         $adminUUID = $_POST['adminuuid'];
 
         if(($firstname == "") or ($lastname == "")) {
-            echo "Name field missing";
+            errorMsg("Name field missing");
             displayForm();
             return;
         }
 
         if(!isAdmin($adminUUID)) {
-            echo "Invalid Admin";
+            errorMsg("Invalid Admin");
             displayForm();
             return;
         }
 
-        if(!isset($UUID[10])){
-            #echo "Decimal";
-            if (is_numeric($UUID)) {
-                #echo "is numeric";
-                $UUID = nfchex($UUID);
-            }
-            else {
-                echo "Please enter a numeric value in UUID";
-                displayForm();
-                return;
-            }
+        if(!isset($UUID[7])){
+            errorMsg("Please enter a proper UUID");
         } else {
-            #echo "Hex";
+
+            $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', 1000 , 0 , 0, LOWER('$UUID'), 0)";
+
+
+            
+            displayForm();
+
+            $result = mysqli_query($link, $query);
+
+            if(mysqli_errno($link) == 1062){
+                errorMsg("UUID is already in use!");
+            } else if(mysqli_errno($link) == 0) {
+                echo "<div class='submitMsg'> <h1 class='success'>";
+           
+                print_r ($firstname . ' ' . $lastname . ' registered with UUID: ' . $UUID);
+                echo "</h1></div>";
+            } else {
+                echo "what the !?";
+            }
         }
-
         
-        $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', 1000 , 0 , 0, LOWER('$UUID'), 0)";
-        echo $firstname . ' ' . $lastname . ' registered with UUID: ' . $UUID;
-
-
-        #echo "<br> $query";
-
-        $result = mysqli_query($link, $query);
 
     }else {
         echo "";
@@ -61,18 +67,31 @@
 
     displayForm();
 
+    function errorMsg($msg){
+        echo "<div class='submitMsg'> <h1 class='error'>$msg</h1></div>";
+    }
+
     function displayForm(){
         echo '<form method="post">
-                First name:<br>
+                <a class="form-text">
+                First name:</a>
                 <input type="text" name="firstname" autofocus><br>
-                Last name:<br>
+
+                <a class="form-text">
+                Last name:</a>
                 <input type="text" name="lastname"><br>
-                UUID:<br>
+
+                <a class="form-text">
+                UUID:</a>
                 <input type="text" name="uuid"><br><br>
-                Admin UUID:<br>
-                <input type="text" name="adminuuid"><br><br>
-                <input type="submit" value="Submit" name="submit">
+
+                <a class="form-text">
+                Admin UUID:</a>
+                <input type="password" name="adminuuid"><br><br>
+
+                <input type="submit" value="Submit" name="submit" class="submitBtn">
                 </form>';
     }
 ?>
 
+</body>

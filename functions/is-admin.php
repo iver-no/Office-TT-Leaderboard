@@ -14,6 +14,8 @@
             return false;
         } else if (mysqli_num_rows($result)==1) {
             return true;
+        } else {
+            return false;
         }
         
     }

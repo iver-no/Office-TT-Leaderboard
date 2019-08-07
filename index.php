@@ -10,3 +10,7 @@
 
     include $_SERVER['DOCUMENT_ROOT'].'/sections/header.php';
 ?>
+
+<body id="body" class="light-mode">
+    
+</body>
