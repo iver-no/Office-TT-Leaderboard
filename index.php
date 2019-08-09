@@ -1,6 +1,9 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
     
+    header("Content-Type: text/html; charset=utf-8");
+
+    echo "<title>Ivers Tabletennis Leaderboard</title>";
 
     echo "<style>";
     include $_SERVER['DOCUMENT_ROOT'].'/css/index.css';
@@ -23,4 +26,6 @@
         include $_SERVER['DOCUMENT_ROOT'].'/functions/leaderboard.php';
         showLeaderboard();
     ?>
+
+    
 </body>

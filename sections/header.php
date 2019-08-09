@@ -2,6 +2,7 @@
 
     echo "<head>";
     echo '<meta http-equiv="Content-type" value="text/html; charset=UTF-8" />';
+    
     echo "</head>";
     echo "<style>";
         include $_SERVER['DOCUMENT_ROOT'].'/css/header.css';

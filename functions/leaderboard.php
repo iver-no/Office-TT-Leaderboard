@@ -6,7 +6,7 @@
         $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
 
         $query = "SELECT * FROM elo ORDER BY ELO, Wins DESC";
-
+        mysqli_set_charset($link, "utf8");
         $result = mysqli_query($link, $query);
         echo "<div id='leaderboard'>";
         while($arr = mysqli_fetch_array($result)) {
@@ -28,7 +28,7 @@
         include $_SERVER['DOCUMENT_ROOT'].'/functions/win-ratio.php';
 
         $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
-
+        mysqli_set_charset($link, "utf8");
         $query = "SELECT * FROM elo ORDER BY ELO, Wins DESC";
 
         $result = mysqli_query($link, $query);
