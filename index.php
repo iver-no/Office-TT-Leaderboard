@@ -20,7 +20,9 @@
 ?>
 
 <body id="body" class="light-mode">
-    <input type="submit" value="New Game" name="New Game" class="newgameBtn">
+    <form action="/game.php" method="post">
+        <input type="submit" value="New Game" name="New Game" class="newgameBtn">
+    </form>
 
     <?php 
         include $_SERVER['DOCUMENT_ROOT'].'/functions/leaderboard.php';

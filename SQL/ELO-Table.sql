@@ -1,12 +1,13 @@
 use officepingpongELO;
 
-CREATE TABLE `ELO` (
-	`FirstName` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-	`LastName` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
-	`ELO` INT(255),
-	`Wins` INT(255),
-	`Losses` INT(255),
-	`UUID` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_bin,
-	`isAdmin` BOOLEAN,
-	PRIMARY KEY (`FirstName`)
+CREATE TABLE `elo` (
+  `FirstName` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
+  `LastName` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `Nickname` varchar(200) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `ELO` int(255) DEFAULT NULL,
+  `Wins` int(255) DEFAULT NULL,
+  `Losses` int(255) DEFAULT NULL,
+  `UUID` varchar(255) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
+  `isAdmin` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`UUID`)
 );

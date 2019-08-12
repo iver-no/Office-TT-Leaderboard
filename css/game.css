@@ -1,0 +1,146 @@
+#player1 {
+    font-size:36px;
+    top: 40%;
+    width: 20%;
+    position: absolute;
+    left: 0;
+    right: 42%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#player2 {
+    font-size:36px;
+    top: 40%;
+    width: 20%;
+    position: absolute;
+    left: 42%;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#player1text {
+    font-size:36px;
+    top: 35%;
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 42%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}       
+
+#player2text {
+    font-size:36px;
+    top: 35%;
+    width: 40%;
+    position: absolute;
+    left: 42%;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#player1name, #player2name {
+    display: none;
+}
+
+
+#vs {
+    font-size:64px;
+    top: 50%;
+    width: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#player1score {
+    left: 0%;
+    right: 42%;
+}
+
+#player2score {
+    left: 42%;
+    right: 0%;
+}
+
+.scoreholder {
+    font-size:64px;
+    top: 41.8%;
+    width: 10%;
+    position: absolute;
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-content: center;
+    
+}
+
+.scoreholder input{
+    margin: 20px 0px;
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    color:black;	
+    font-weight:bold;
+    padding: 5px 15px;
+    font-size: 36px;
+}
+
+.scoreholder input:active {
+    background-color:#bbbbbb;
+}
+
+.scoreholder a{
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    color:black;	
+	font-weight:bold;
+	padding:12px 48px;
+}
+
+#gameOverBtn {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color:#ffffff;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    color:black;
+    font-size:46px;
+    top: 65%;
+    width: 20%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: none;
+}

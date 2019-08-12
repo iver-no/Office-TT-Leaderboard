@@ -40,7 +40,7 @@
             errorMsg("Please enter a proper UUID");
         } else {
 
-            $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', 1000 , 0 , 0, LOWER('$UUID'), 0)";
+            $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', NULL ,1000 , 0 , 0, LOWER('$UUID'), 0)";
 
 
             
@@ -56,7 +56,7 @@
                 print_r ($firstname . ' ' . $lastname . ' registered with UUID: ' . $UUID);
                 echo "</h1></div>";
             } else {
-                echo "what the !?";
+                printf (mysqli_errno($link));
             }
         }
         
@@ -83,14 +83,19 @@
 
                 <a class="form-text">
                 UUID:</a>
-                <input type="text" name="uuid"><br><br>
+                <input type="text" name="uuid" id="uuid"><br><br>
 
                 <a class="form-text">
                 Admin UUID:</a>
-                <input type="password" name="adminuuid"><br><br>
+                <input type="password" name="adminuuid" id="adminuuid"><br><br>
 
-                <input type="submit" value="Submit" name="submit" class="submitBtn">
+                <input type="submit" value="Submit" name="submit" class="submitBtn">        
                 </form>';
+        
+        echo "<script>";
+            include $_SERVER['DOCUMENT_ROOT'].'/js/new-user.js';
+        echo "</script>";
+
     }
 ?>
 

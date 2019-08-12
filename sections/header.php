@@ -2,7 +2,8 @@
 
     echo "<head>";
     echo '<meta http-equiv="Content-type" value="text/html; charset=UTF-8" />';
-    
+    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+
     echo "</head>";
     echo "<style>";
         include $_SERVER['DOCUMENT_ROOT'].'/css/header.css';

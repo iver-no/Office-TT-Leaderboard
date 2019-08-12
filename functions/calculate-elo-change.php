@@ -1,4 +1,6 @@
 <?php
+#If myGameResult = 1 then you won
+
     function getRatingDelta($myRating, $opponentRating, $myGameResult){
         $kfac = 20;
         $myChanceToWin = (1 / (1 + pow(10, ($opponentRating - $myRating) / 400)));
@@ -9,4 +11,6 @@
     function getNewRating($myRating, $opponentRating, $myGameResult) {
         return $myRating + getRatingDelta($myRating, $opponentRating, $myGameResult);
     }
+
+    #echo getNewRating(990,1010,0);
 ?>
