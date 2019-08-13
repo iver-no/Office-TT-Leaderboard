@@ -3,7 +3,7 @@
         include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
         include $_SERVER['DOCUMENT_ROOT'].'/functions/win-ratio.php';
 
-        $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+        $link = mysqli_connect($ip,$username,$password,$database);
         mysqli_set_charset($link, "utf8");
         $query = "SELECT * FROM elo ORDER BY ELO DESC, Wins DESC";
 

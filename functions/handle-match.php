@@ -4,7 +4,7 @@
     include $_SERVER['DOCUMENT_ROOT'].'/functions/uuid-to-name.php';
     include $_SERVER['DOCUMENT_ROOT'].'/functions/who-won.php';
 
-    $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+    $link = mysqli_connect($ip,$username,$password,$database);
 
     $p1uuid = strtolower(strval($_GET["p1uuid"]));
     $p1score = strval($_GET["p1score"]);

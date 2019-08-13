@@ -3,4 +3,5 @@
 $ip = "localhost";
 $username = "root";
 $password = "";
+$database = "databaseName";
 ?>

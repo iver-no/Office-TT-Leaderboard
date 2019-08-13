@@ -9,7 +9,7 @@
     include $_SERVER['DOCUMENT_ROOT'].'/css/index.css';
     echo "</style>";
 
-    $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+    $link = mysqli_connect($ip,$username,$password,$database);
     
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());

@@ -1,7 +1,7 @@
 <?php
     function isAdmin($input) {
         include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
-        $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+        $link = mysqli_connect($ip,$username,$password,$database);
         
         $query = "SELECT isAdmin from elo WHERE UUID = LOWER('$input')";
 

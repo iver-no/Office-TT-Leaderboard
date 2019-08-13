@@ -5,10 +5,10 @@
     }
 
     $uuid = strval($_GET["uuid"]);
-    
+
     include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
 
-    $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+    $link = mysqli_connect($ip,$username,$password,$database);
 
     
 
@@ -36,7 +36,7 @@
     function uuidToName($uuid){
         include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
 
-        $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
+        $link = mysqli_connect($ip,$username,$password,$database);
     
         if (mysqli_connect_errno()) {
             printf("Connect failed: %s\n", mysqli_connect_error());
