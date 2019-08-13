@@ -5,10 +5,10 @@
 
     $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
 
-    $p1uuid = strval($_GET["p1uuid"]);
+    $p1uuid = strtolower(strval($_GET["p1uuid"]));
     $p1score = strval($_GET["p1score"]);
 
-    $p2uuid = strval($_GET["p2uuid"]);
+    $p2uuid = strtolower(strval($_GET["p2uuid"]));
     $p2score = strval($_GET["p2score"]);
 
     if (mysqli_connect_errno()) {
@@ -71,5 +71,8 @@
 
     
     #update match History
+    $mhquery = "INSERT INTO matchHistory VALUES ('$p1uuid',$p1score,'$p2uuid',$p2score,$gameResult, NULL);";
+    $mhResult = mysqli_query($link, $mhquery);
+    echo $mhquery;
     return true;
 ?>

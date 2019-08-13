@@ -75,11 +75,11 @@
         echo '<form method="post">
                 <a class="form-text">
                 First name:</a>
-                <input type="text" name="firstname" autofocus><br>
+                <input type="text" name="firstname" autofocus id="firstname"><br>
 
                 <a class="form-text">
                 Last name:</a>
-                <input type="text" name="lastname"><br>
+                <input type="text" name="lastname" id="lastname"><br>
 
                 <a class="form-text">
                 UUID:</a>

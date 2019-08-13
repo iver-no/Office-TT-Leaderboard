@@ -34,7 +34,7 @@ body.dark-mode {
 }
 
 .header-right {
-  margin: 0;
+  margin: -20;
 }
 
 .form-switch {

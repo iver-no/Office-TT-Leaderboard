@@ -12,7 +12,7 @@
 
     mysqli_set_charset($link, "utf8");
 
-    $query = "SELECT FirstName, LastName FROM elo WHERE UUID = '" . $uuid . "'";
+    $query = "SELECT FirstName, LastName FROM elo WHERE UUID = LOWER('" . $uuid . "')";
 
     $result = mysqli_query($link, $query);
 
