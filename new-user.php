@@ -7,6 +7,8 @@
     include $_SERVER['DOCUMENT_ROOT'].'/css/new-user.css';
     echo "</style>";
 
+    echo "<title>New User</title>";
+
     $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
 
     if (mysqli_connect_errno()) {
@@ -39,6 +41,10 @@
         if(!isset($UUID[7])){
             errorMsg("Please enter a proper UUID");
         } else {
+            # Assume someone entered the code in the back
+            if(is_numeric($UUID)){
+                $UUID = nfchex($UUID);
+            }
 
             $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', NULL ,1000 , 0 , 0, LOWER('$UUID'), 0)";
 

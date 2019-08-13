@@ -1,6 +1,7 @@
 <?php
     include $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
     include $_SERVER['DOCUMENT_ROOT'].'/functions/calculate-elo-change.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/functions/uuid-to-name.php';
     include $_SERVER['DOCUMENT_ROOT'].'/functions/who-won.php';
 
     $link = mysqli_connect($ip,$username,$password,"officepingpongELO");
@@ -25,6 +26,11 @@
         return false;
     }
 
+    if($p1uuid == $p2uuid){
+        echo "You cant play against yourself!";
+        return false;
+    }
+
     #calc-elo-change based on who won , do it 2 times, then update SQL
     #Update Player1Elo 
     $p1getelo = "SELECT ELO FROM elo WHERE UUID = '" . $p1uuid . "'";
@@ -43,7 +49,7 @@
     if($gameResult == "0") {
         $p1newelo = getNewRating($rowp1elo["ELO"],$rowp2elo["ELO"], 0);
         $p2newelo = getNewRating($rowp2elo["ELO"],$rowp1elo["ELO"], 1);
-        echo "Player 2 lost <br>";
+        echo uuidToName($p2uuid). " wins! <br>";
         $p1update_query = "UPDATE ELO SET ELO = $p1newelo, Losses = Losses + 1 WHERE UUID = '$p1uuid'"; 
         $p2update_query = "UPDATE ELO SET ELO = $p2newelo, Wins = Wins + 1 WHERE UUID = '$p2uuid'"; 
 
@@ -60,7 +66,7 @@
         $p1update_query = "UPDATE ELO SET ELO = $p1newelo, Wins = Wins + 1 WHERE UUID = '$p1uuid'"; 
         $p2update_query = "UPDATE ELO SET ELO = $p2newelo, Losses = Losses + 1 WHERE UUID = '$p2uuid'"; 
 
-        echo "Player 1 won";
+        echo uuidToName($p1uuid)." wins! <br>";
 
         $resultp1newelo = mysqli_query($link, $p1update_query);
         $resultp2newelo = mysqli_query($link, $p2update_query);
@@ -73,6 +79,7 @@
     #update match History
     $mhquery = "INSERT INTO matchHistory VALUES ('$p1uuid',$p1score,'$p2uuid',$p2score,$gameResult, NULL);";
     $mhResult = mysqli_query($link, $mhquery);
-    echo $mhquery;
+    #echo $mhquery;
+    echo "Thanks for playing!";
     return true;
 ?>

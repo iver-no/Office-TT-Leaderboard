@@ -4,6 +4,7 @@ player1score = 0;
 player2score = 0;
 player1Id = "";
 player2Id = "";
+sec = 5;
 
 function scoreAdd(playerN) {
 
@@ -48,10 +49,10 @@ function addListeners(){
             
             document.getElementById("player1text").append(getFullName(player1uuid,"player1text"));
             document.getElementById("player1name").append(player1uuid);
-            
+
             document.getElementById("player1").style.display = "none";
-            document.getElementById("player1score").style.display = "block";
             
+
             document.getElementById("player2").focus();
         }
     });
@@ -64,9 +65,10 @@ function addListeners(){
     
             document.getElementById("player2text").append(getFullName(player2uuid,"player2text"));
             document.getElementById("player2name").append(player2uuid);
-    
+
             document.getElementById("player2").style.display = "none";
-            document.getElementById("player2score").style.display = "block";
+    
+            userNotFound();
         }
     });
 }
@@ -76,6 +78,29 @@ function isGameOver(score){
         document.getElementById("gameOverBtn").style.display = "block";
     } else {
         document.getElementById("gameOverBtn").style.display = "none";
+        return;
+    }
+}
+
+function checkPlayers(){
+    
+    if(player1uuid == "" || player2uuid == "" || (player1uuid == player2uuid) || userNotFound) {
+        return false;
+    }
+        return;
+}
+
+function userNotFound(){
+    //Checks if either Player1 or player2 was not found
+    if((document.getElementById("player1text").innerHTML == "User not found") || (document.getElementById("player2text").innerHTML == "User not found")) {
+        return;
+    }
+    else {
+        document.getElementById("player1").style.display = "none";
+        document.getElementById("player1score").style.display = "block";
+        
+        document.getElementById("player2").style.display = "none";
+        document.getElementById("player2score").style.display = "block";
         return;
     }
 }
@@ -117,8 +142,9 @@ function gameSubmit() {
     
     console.log(player1uuid + " went " +player1score + " VS " + player2uuid + "'s " +player2score);
 
-    if(player1uuid == "" || player2uuid == "" ) {
+    if(player1uuid == "" || player2uuid == "" || (player1uuid == player2uuid)) {
         //Send a message to the user that something went very wrong...
+        countdown();
         return;
     } else {
         xmlhttp = new XMLHttpRequest();
@@ -129,8 +155,28 @@ function gameSubmit() {
                 console.log("Success, lets do something about it");
             }
         };
-        xmlhttp.open("GET","/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score,true);
+        xmlhttp.open("GET","/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score,false);
         console.log("/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score);
         xmlhttp.send();
+        document.getElementById("gameOverInfo").innerHTML = xmlhttp.responseText;
+        document.getElementById("gameOverInfo").style.display = "block";
+        document.getElementById("gameOverBtn").style.display = "none";
+        document.getElementById("newgameBtn").style.display = "inline-block";
+    
+        countdown();
     }
 }
+
+
+
+function countdown(){
+    sec = sec - 1;
+    if(sec < 0) {
+        window.location = "https://localhost";
+    } else {
+        document.getElementById("vs").innerHTML = "Redirecting in " + sec;
+        window.setTimeout("countdown()", 1000);
+    }
+
+}
+

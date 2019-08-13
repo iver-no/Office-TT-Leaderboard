@@ -1,15 +1,18 @@
 <?php
 
+    $favicon = '/img/favicon128.png';
+
     echo "<head>";
     echo '<meta http-equiv="Content-type" value="text/html; charset=UTF-8" />';
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
-
+    echo "<link rel='shortcut icon' type='image/png' href='$favicon'/>";
     echo "</head>";
     echo "<style>";
         include $_SERVER['DOCUMENT_ROOT'].'/css/header.css';
     echo "</style>";
 
     # URLs
+    
     $homeURL = $_SERVER['HTTP_HOST'].'/index.php';
     $newUserURL = $_SERVER['HTTP_HOST'].'/new-user.php';
     $tournamentURL = $_SERVER['HTTP_HOST'].'/tournament.php';

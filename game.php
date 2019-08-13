@@ -54,8 +54,13 @@
         </div>
         ';
     #Echo gameOver button
-    echo '<input type="button" id="gameOverBtn" value="Game Over?" onclick="gameSubmit()">
-    ';
+    echo '<input type="button" id="gameOverBtn" value="Game Over?" onclick="gameSubmit()">';
+    #div for feedback
+    echo '<h1 id="gameOverInfo"></h1>';
     ?>
+
+    <form action="/game.php" method="post">
+        <input type="submit" value="New Game" name="New Game" class="newgameBtn" id="newgameBtn">
+    </form>
     
 </body>
