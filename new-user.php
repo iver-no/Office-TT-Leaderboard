@@ -18,6 +18,10 @@
 
     include $_SERVER['DOCUMENT_ROOT'].'/sections/header.php';
 
+    echo "<script>";
+    include $_SERVER['DOCUMENT_ROOT'].'/js/display-mode.js';
+    echo "</script>";
+
     echo '<body id="body" class="light-mode">';
 
     if(isset($_POST['submit'])) {

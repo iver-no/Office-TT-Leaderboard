@@ -17,6 +17,9 @@
     }
 
     include $_SERVER['DOCUMENT_ROOT'].'/sections/header.php';
+    echo "<script>";
+    include $_SERVER['DOCUMENT_ROOT'].'/js/display-mode.js';
+    echo "</script>";
 ?>
 
 <body id="body" class="light-mode">

@@ -28,9 +28,17 @@ body.dark-mode {
   
 .header-left a {
   font-size: 16px;
+  font-weight: bold;
   color: white;  
   padding: 20px 16px;
   text-decoration: none;
+  transition: background-color 0.2s linear; 
+  transition: color 0.1s linear; 
+}
+
+.header-left a:hover {
+  background: #fcde06;
+  color:black;
 }
 
 .header-right {

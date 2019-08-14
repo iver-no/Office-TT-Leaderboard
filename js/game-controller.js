@@ -42,6 +42,26 @@ function scoreMinus(playerN) {
 }
 
 function addListeners(){
+
+    if(!!$.cookie("display-mode")){
+        console.log($.cookie("display-mode"));
+        if($.cookie("display-mode") == "light-mode"){
+            console.log("light-mode");
+            var body = document.getElementById("body");
+            body.className = "light-mode";
+            document.getElementById("display-switch").checked = false;
+        }            
+        if($.cookie("display-mode") == "dark-mode"){
+            console.log("dark-mode");
+            var body = document.getElementById("body");
+            body.className = "dark-mode";
+            document.getElementById("display-switch").checked = true;
+        }
+        
+    } else {
+        var CookieSet = $.cookie("display-mode","light-mode");
+    }
+
     document.getElementById('player1').addEventListener('keypress', function(event) {
         // you could also do keyCode === 13
         if (event.key === 'Enter') {
