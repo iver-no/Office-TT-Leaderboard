@@ -192,7 +192,7 @@ function gameSubmit() {
 function countdown(){
     sec = sec - 1;
     if(sec < 0) {
-        window.location = "https://localhost";
+        window.location = "https://iver.fun/index.php";
     } else {
         document.getElementById("vs").innerHTML = "Redirecting in " + sec;
         window.setTimeout("countdown()", 1000);

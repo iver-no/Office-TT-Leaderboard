@@ -77,7 +77,7 @@
 
     
     #update match History
-    $mhquery = "INSERT INTO matchHistory VALUES ('$p1uuid',$p1score,'$p2uuid',$p2score,$gameResult, NULL);";
+    $mhquery = "INSERT INTO matchHistory VALUES ('$p1uuid',$p1score,'$p2uuid',$p2score,$gameResult, NULL, NOW());";
     $mhResult = mysqli_query($link, $mhquery);
     #echo $mhquery;
     echo "Thanks for playing!";

@@ -1,0 +1,21 @@
+#match-history {
+    top: 10%;
+    width: 40%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+table {
+    font-size: 24px;
+    width: 100%;
+}
+
+tr {
+    background-color: #dcdcdc;
+    border-radius: 25px;
+}
+

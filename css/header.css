@@ -15,6 +15,9 @@ body.dark-mode {
   width: 100%;
   background: #333;
 }
+body.dark-mode a.form-text, a#vs{
+  color:white;
+}
 
 .navbar {
     overflow: hidden;

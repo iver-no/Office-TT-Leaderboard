@@ -17,6 +17,7 @@
     $homeURL = $_SERVER['HTTP_HOST'].'/index.php';
     $newUserURL = $_SERVER['HTTP_HOST'].'/new-user.php';
     $tournamentURL = $_SERVER['HTTP_HOST'].'/tournament.php';
+    $matchHistoryURL = $_SERVER['HTTP_HOST'].'/match-history.php';
 ?>
 
 
@@ -26,6 +27,7 @@
         <a id="headerbutton"href="//<?php echo $homeURL; ?>">Home</a>
         <a id="headerbutton" href="//<?php echo $newUserURL; ?>">New User</a>
         <a id="headerbutton" href="<?php echo "#"; ?>">Tournament</a>
+        <a id="headerbutton" href="//<?php echo $matchHistoryURL; ?>">Match History</a>
     </div>
 
     <div class="header-right">
