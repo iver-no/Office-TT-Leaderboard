@@ -62,14 +62,14 @@
         while($row = mysqli_fetch_array($result)) {
             if(isset($_GET["nick"])){
                 if($row["Nickname"] == NULL) {
-                    echo $row["FirstName"] . " " . $row["LastName"];
+                    echo ucfirst($row["FirstName"]) . " " . ucfirst($row["LastName"]);
                     return;
                 } else {
                     echo $row["Nickname"];
                     return;
                 }
             } else {
-                echo $row["FirstName"] . " " . $row["LastName"];
+                echo ucfirst($row["FirstName"]) . " " . ucfirst($row["LastName"]);
                 return;
             }
         }
@@ -97,7 +97,7 @@
         $result = mysqli_query($link, $query);
     
         while($row = mysqli_fetch_array($result)) {
-            return $row["FirstName"] . " " . $row["LastName"];
+            return ucfirst($row["FirstName"]) . " " . ucfirst($row["LastName"]);
             
         }
     
