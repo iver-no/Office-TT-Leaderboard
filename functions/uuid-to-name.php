@@ -19,13 +19,23 @@
 
     mysqli_set_charset($link, "utf8");
 
-    $query = "SELECT FirstName, LastName FROM elo WHERE UUID = LOWER('" . $uuid . "')";
+    $query = "SELECT FirstName, LastName, Nickname FROM elo WHERE UUID = LOWER('" . $uuid . "')";
 
     $result = mysqli_query($link, $query);
 
     while($row = mysqli_fetch_array($result)) {
-        echo $row["FirstName"] . " " . $row["LastName"];
-        return;
+        if(isset($_GET["nick"])){
+            if($row["Nickname"] == NULL) {
+                echo $row["FirstName"] . " " . $row["LastName"];
+                return;
+            } else {
+                echo $row["Nickname"];
+                return;
+            }
+        } else {
+            echo $row["FirstName"] . " " . $row["LastName"];
+            return;
+        }
     }
 
     if (mysqli_num_rows($result)==0) {
@@ -45,13 +55,23 @@
     
         mysqli_set_charset($link, "utf8");
     
-        $query = "SELECT FirstName, LastName FROM elo WHERE UUID = LOWER('" . $uuid . "')";
+        $query = "SELECT FirstName, LastName, Nickname FROM elo WHERE UUID = LOWER('" . $uuid . "')";
     
         $result = mysqli_query($link, $query);
     
         while($row = mysqli_fetch_array($result)) {
-            echo $row["FirstName"] . " " . $row["LastName"];
-            return;
+            if(isset($_GET["nick"])){
+                if($row["Nickname"] == NULL) {
+                    echo $row["FirstName"] . " " . $row["LastName"];
+                    return;
+                } else {
+                    echo $row["Nickname"];
+                    return;
+                }
+            } else {
+                echo $row["FirstName"] . " " . $row["LastName"];
+                return;
+            }
         }
     
         if (mysqli_num_rows($result)==0) {

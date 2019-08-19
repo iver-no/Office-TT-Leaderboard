@@ -138,7 +138,7 @@ function getFullName(uuid, playerId){
             document.getElementById(playerId).innerHTML = this.responseText;
         }
     };
-    xmlhttp.open("GET","/functions/uuid-to-name.php?uuid="+uuid,true);
+    xmlhttp.open("GET","/functions/uuid-to-name.php?nick=true&uuid="+uuid,true);
     xmlhttp.send();
 }
 
@@ -176,7 +176,7 @@ function gameSubmit() {
             }
         };
         xmlhttp.open("GET","/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score,false);
-        console.log("/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score);
+        //console.log("/functions/handle-match.php?p1uuid="+player1uuid+"&p1score="+player1score+"&p2uuid="+player2uuid+"&p2score="+player2score);
         xmlhttp.send();
         document.getElementById("gameOverInfo").innerHTML = xmlhttp.responseText;
         document.getElementById("gameOverInfo").style.display = "block";

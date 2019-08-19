@@ -11,6 +11,4 @@
     function getNewRating($myRating, $opponentRating, $myGameResult) {
         return $myRating + getRatingDelta($myRating, $opponentRating, $myGameResult);
     }
-
-    #echo getNewRating(990,1010,0);
 ?>
