@@ -5,6 +5,8 @@
 
     echo "<title>Ivers Tabletennis Leaderboard</title>";
 
+    echo '<meta http-equiv="refresh" content="300">';
+
     echo "<style>";
     include $_SERVER['DOCUMENT_ROOT'].'/css/index.css';
     echo "</style>";
