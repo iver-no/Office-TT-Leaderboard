@@ -10,7 +10,7 @@
 
         $output = array_reverse($output);
 
-        $string_output = $output[0] .":". $output[1].":".$output[2].":".$output[3];
+        $string_output = $output[0].$output[1].$output[2].$output[3];
 
         return $string_output;
     }
