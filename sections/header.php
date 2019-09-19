@@ -26,7 +26,7 @@
     <div class="header-left">
         <a id="headerbutton"href="//<?php echo $homeURL; ?>">Home</a>
         <a id="headerbutton" href="//<?php echo $newUserURL; ?>">New User</a>
-        <a id="headerbutton" href="<?php echo "#"; ?>">Tournament</a>
+        <a id="headerbutton" href="//<?php echo $tournamentURL; ?>">Tournament</a>
         <a id="headerbutton" href="//<?php echo $matchHistoryURL; ?>">Match History</a>
     </div>
 
