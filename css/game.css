@@ -50,6 +50,10 @@
     display: none;
 }
 
+#player1Kvalue, #player2Kvalue {
+    display: none;
+}
+
 
 #vs {
     font-size:64px;

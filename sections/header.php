@@ -18,6 +18,7 @@
     $newUserURL = $_SERVER['HTTP_HOST'].'/new-user.php';
     $tournamentURL = $_SERVER['HTTP_HOST'].'/tournament.php';
     $matchHistoryURL = $_SERVER['HTTP_HOST'].'/match-history.php';
+    $rulesURL = $_SERVER['HTTP_HOST'].'/rules.php';
 ?>
 
 
@@ -28,10 +29,11 @@
         <a id="headerbutton" href="//<?php echo $newUserURL; ?>">New User</a>
         <a id="headerbutton" href="//<?php echo $tournamentURL; ?>">Tournament</a>
         <a id="headerbutton" href="//<?php echo $matchHistoryURL; ?>">Match History</a>
+        <a id="headerbutton" href="//<?php echo $rulesURL; ?>">Rules </a>
     </div>
 
     <div class="header-right">
-        
+    <a id="version">v1.1.21a</a>
         <label class="form-switch">
             <input type="checkbox" id="display-switch" class="form-switch" onclick="toggleDarkLight()">
             <i></i>

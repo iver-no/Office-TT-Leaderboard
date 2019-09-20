@@ -19,21 +19,24 @@
 
     mysqli_set_charset($link, "utf8");
 
-    $query = "SELECT FirstName, LastName, Nickname FROM elo WHERE UUID = LOWER('" . $uuid . "')";
+    $query = "SELECT FirstName, LastName, Nickname, Kfactor FROM elo WHERE UUID = LOWER('" . $uuid . "')";
 
     $result = mysqli_query($link, $query);
 
     while($row = mysqli_fetch_array($result)) {
         if(isset($_GET["nick"])){
             if($row["Nickname"] == NULL) {
-                echo $row["FirstName"] . " " . $row["LastName"];
+                echo $row["FirstName"] . " " . $row["LastName"]."\n";
+                echo $row["Kfactor"];
                 return;
             } else {
-                echo $row["Nickname"];
+                echo $row["Nickname"]."\n";
+                echo $row["Kfactor"];
                 return;
             }
         } else {
-            echo $row["FirstName"] . " " . $row["LastName"];
+            echo $row["FirstName"] . " " . $row["LastName"] ."\n";
+            echo $row["Kfactor"];
             return;
         }
     }

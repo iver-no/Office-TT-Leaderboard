@@ -11,7 +11,9 @@
         echo "<div id='leaderboard'><table align='center' border='0' cellspacing='0'>";#<tr><th>Name</th><th>ELO</th><th>Wins</th><th>Losses</th><th>WinRatio</th></tr>";
         echo "<tr><td align='center'>Player</td><td align='center'>Rating</td><td align='center' colspan='3'>Stats</td></tr>";
         while($arr = mysqli_fetch_array($result)) {
-
+            if($arr["FirstName"] == "Walk" && $arr["LastName"] == "Over"){
+                 
+            }
             echo "<tr><td>" . ucfirst($arr["FirstName"]) . " ";
             echo ucfirst($arr["LastName"]) ."</td>";
             echo "<td>" . $arr["ELO"] ."</td>";

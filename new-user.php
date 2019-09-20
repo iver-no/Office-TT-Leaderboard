@@ -50,7 +50,7 @@
                 $UUID = nfchex($UUID);
             }
 
-            $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', NULL ,1000 , 0 , 0, LOWER('$UUID'), 0)";
+            $query = "INSERT INTO elo VALUES ('$firstname', '$lastname', NULL ,1000 , 0 , 0, LOWER('$UUID'), 0, 40)";
 
 
             
@@ -82,7 +82,7 @@
     }
 
     function displayForm(){
-        echo '<form method="post">
+        echo '<form autocomplete="off" method="post">
                 <a class="form-text">
                 First name:</a>
                 <input type="text" name="firstname" autofocus id="firstname"><br>

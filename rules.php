@@ -5,13 +5,12 @@
 
     echo "<title>Ivers Tabletennis Leaderboard</title>";
 
-    echo '<meta http-equiv="refresh" content="300">';
-
     echo "<style>";
-    include $_SERVER['DOCUMENT_ROOT'].'/css/index.css';
+    include $_SERVER['DOCUMENT_ROOT'].'/css/match-history.css';
     echo "</style>";
 
     $link = mysqli_connect($ip,$username,$password,$database);
+    mysqli_set_charset($link, "utf8");
     
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
@@ -24,13 +23,6 @@
     echo "</script>";
 ?>
 
-<body id="body" class="light-mode">
-    <form action="/game.php" method="post">
-        <input type="submit" value="New Game" name="New Game" class="newgameBtn">
-    </form>
+<body id="body" class="light-mode" >
 
-    <?php 
-        include $_SERVER['DOCUMENT_ROOT'].'/functions/leaderboard.php';
-        showLeaderboard();
-    ?> 
 </body>

@@ -45,7 +45,13 @@ body.dark-mode a.form-text, a#vs{
 }
 
 .header-right {
-  margin: -20;
+  margin: -80;
+}
+
+#version {
+  color: #e6e6e6;
+  font-weight: bold;
+  padding: 20px 16px;
 }
 
 .form-switch {

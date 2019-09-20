@@ -33,11 +33,13 @@
         Player 1</a>
         <input type="text" id="player1" name="player1" autofocus>
         <a id=player1name></a>
+        <a id=player1Kvalue></a>
         <a id=vs>VS</a>
         <a class="form-text" id="player2text">
         Player 2</a>
         <input type="text" id="player2" name="player2">
         <a id=player2name></a>
+        <a id=player2Kvalue></a>
         <br>';
     
     # Echo Scorecounters

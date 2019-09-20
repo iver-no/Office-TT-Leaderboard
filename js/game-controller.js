@@ -6,6 +6,7 @@ player1Id = "";
 player2Id = "";
 sec = 5;
 
+
 function scoreAdd(playerN) {
 
     //document.getElementById("scorep"+playerN).value("2");
@@ -67,7 +68,7 @@ function addListeners(){
         if (event.key === 'Enter') {
             player1uuid = document.getElementById("player1").value;
             
-            document.getElementById("player1text").append(getFullName(player1uuid,"player1text"));
+            document.getElementById("player1text").append(getFullName(player1uuid,"player1text","player1Kvalue"));
             document.getElementById("player1name").append(player1uuid);
 
             document.getElementById("player1").style.display = "none";
@@ -83,7 +84,7 @@ function addListeners(){
             player2uuid = document.getElementById("player2").value;
     
     
-            document.getElementById("player2text").append(getFullName(player2uuid,"player2text"));
+            document.getElementById("player2text").append(getFullName(player2uuid,"player2text","player2Kvalue"));
             document.getElementById("player2name").append(player2uuid);
 
             document.getElementById("player2").style.display = "none";
@@ -126,7 +127,7 @@ function userNotFound(){
 }
 
 
-function getFullName(uuid, playerId){
+function getFullName(uuid, playerId, playerXKvalue){
     if(uuid == "") {
         document.getElementById(playerId).innerHTML = "Error";
         return "";
@@ -135,7 +136,12 @@ function getFullName(uuid, playerId){
 
     xmlhttp.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            document.getElementById(playerId).innerHTML = this.responseText;
+            //document.getElementById(playerId).innerHTML = this.responseText;
+            var responeData = this.responseText.split("\n");
+            console.log(responeData);
+            document.getElementById(playerId).innerHTML = responeData[0];
+            document.getElementById(playerXKvalue).innerHTML = responeData[1];
+            
         }
     };
     xmlhttp.open("GET","/functions/uuid-to-name.php?nick=true&uuid="+uuid,true);
@@ -192,7 +198,7 @@ function gameSubmit() {
 function countdown(){
     sec = sec - 1;
     if(sec < 0) {
-        window.location = "https://iver.fun/index.php";
+        window.location = "../";
     } else {
         document.getElementById("vs").innerHTML = "Redirecting in " + sec;
         window.setTimeout("countdown()", 1000);
